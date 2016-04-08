@@ -1,0 +1,30 @@
+{
+    "name": "Hello World!",
+    "version": "1.0",
+    "description": "Whatsapp Auto Reply Bot demo",
+    "manifest_version": 2,
+    "permissions": [
+        "https://*.whatsapp.com/*",
+        "activeTab"
+    ],
+    "browser_action": {
+        "default_icon": "wa_icon.png",
+        "default_title": "Whatsapp Auto Reply bot"
+    },
+    "background": {
+        "scripts": ["jquery.js", "background.js"]
+    },
+    "content_scripts": [{
+        "js": ["scripts/jquery.js", "scripts/jquery.sendkeys.js", "scripts/bililiteRange.js", "scripts/jquery.simulate.js", "scripts/jquery.simulate.ext.js", "scripts/jquery.simulate.key-combo.js"],
+        "matches": ["*://web.whatsapp.com/*"],
+        "run_at": "document_start"
+    }],
+    "web_accessible_resources": ["script.js"]
+    /*,
+    "content_scripts": [{
+        // Change 'matches' attribute to load content
+        // script only in pages you want to.
+        "matches": ["http://*.klassy.in/*"],
+        "js": ["jquery.js", "background.js"]
+    }]*/
+}
